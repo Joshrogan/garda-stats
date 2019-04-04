@@ -1,4 +1,5 @@
-<%@ page import="java.util.*, com.javadbproject.jdbc.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +7,6 @@
 	
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
-<%
-	List<Station> stations = (List<Station>) request.getAttribute("STATION_LIST");
-%>
 <body>
 
 	<h1>List of stations</h1>
@@ -18,13 +16,13 @@
 			<th>Division</th>
 			<th>Murders/Assaults</th>
 		</tr>
-		<% for (Station tempStation : stations) { %>
+		<c:forEach var="tempStation" items="${STATION_LIST}">
 			<tr>
-				<td><%= tempStation.getStationName() %></td>
-				<td><%= tempStation.getDivision() %></td>
-				<td><%= tempStation.getMurderAssault() %></td>
+				<td>${tempStation.stationName}</td>
+				<td>${tempStation.division}</td>
+				<td>${tempStation.murderAssault}</td>
 			</tr>
-		<% } %>
+		</c:forEach>
 	</table>
 
 
