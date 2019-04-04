@@ -3,6 +3,8 @@
 <html>
 <head>
 	<title>Station List</title>
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <%
 	List<Station> stations = (List<Station>) request.getAttribute("STATION_LIST");
@@ -10,7 +12,6 @@
 <body>
 
 	<h1>List of stations</h1>
-	<br/><br/>
 	<table>
 		<tr>
 			<th>Station</th>
