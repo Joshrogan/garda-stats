@@ -1,6 +1,7 @@
 package com.javadbproject.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -31,6 +32,73 @@ public class StationDbUtil {
 			statement = connection.createStatement();
 			
 			result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				String stationName = result.getString("station");
+				String division = result.getString("divisions");
+				int murderAssault = 
+						result.getInt("attemptsthreatstomurderassaultsharassmentsandrelatedoffences");
+				
+				Station tempStation = new Station(stationName, division, murderAssault);
+				
+				stations.add(tempStation);
+			}
+			
+			return stations;
+		} finally {
+			close(connection, statement, result);
+		}
+	}
+	
+	public List<Station> getDivisions() throws Exception {
+		List<Station> uniqueDivisions = new ArrayList<>();
+		
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet result = null;
+		
+		// try establish db connection, create/execute SQL, store in stations and close JDBC after
+		try {
+			connection = dataSource.getConnection();
+			
+			String sql = "select distinct divisions from data order by divisions";
+			
+			statement = connection.createStatement();
+			
+			result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				String division = result.getString("divisions");
+				
+				Station tempStation = new Station(division);
+				
+				uniqueDivisions.add(tempStation);
+			}
+		
+			return uniqueDivisions;
+		} finally {
+			close(connection, statement, result);
+		}
+	}
+	
+	public List<Station> getOneDivision(String divisionName) throws Exception {
+		List<Station> stations = new ArrayList<>();
+		
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet result = null;
+		
+		// try establish db connection, create/execute SQL, store in stations and close JDBC after
+		try {
+			connection = dataSource.getConnection();
+			
+			//prepared statements let us handle different inputs and not hardcode
+			String sql = "select * from data where divisions=?";
+			
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, divisionName);
+			
+			result = statement.executeQuery();
 			
 			while(result.next()) {
 				String stationName = result.getString("station");

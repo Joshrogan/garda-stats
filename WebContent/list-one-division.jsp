@@ -22,7 +22,7 @@
 			<th>Murders/Assaults</th>
 
 		</tr>
-		<c:forEach var="tempStation" items="${STATION_LIST}">
+		<c:forEach var="tempStation" items="${THE_DIVISION}">
 			<tr>
 				<td>${tempStation.stationName}</td>
 				<td>${tempStation.division}</td>

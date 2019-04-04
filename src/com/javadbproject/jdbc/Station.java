@@ -17,6 +17,9 @@ public class Station {
 	private int publicOrder;
 	private int orgCrime;
 	
+	public Station(String division) {
+		this.division = division;
+	}
 	//smaller constructor to test
 	public Station(String stationName, String division, int murderAssault) {
 		this.stationName = stationName;

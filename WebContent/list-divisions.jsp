@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Station List</title>
+	<title>Division List</title>
 	
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-	<h1>List of stations</h1>
+	<h1>List of Divisions</h1>
 	<a href="index.jsp">back home</a>
 		<form action="StationControllerServlet" method="GET">
 		<input type="submit" name="command" value="STATIONS" />
@@ -17,20 +17,17 @@
 	</form>
 	<table>
 		<tr>
-			<th>Station</th>
 			<th>Division</th>
-			<th>Murders/Assaults</th>
-
 		</tr>
-		<c:forEach var="tempStation" items="${STATION_LIST}">
+		<c:forEach var="tempStation" items="${DIVISION_LIST}">
+		<c:url var="divisionLink" value="StationControllerServlet">
+			<c:param name="command" value="ONEDIVISION" />
+			<c:param name="divisionName" value="${tempStation.division }" />
+		</c:url>
 			<tr>
-				<td>${tempStation.stationName}</td>
-				<td>${tempStation.division}</td>
-				<td>${tempStation.murderAssault}</td>
+				<td><a href="${divisionLink}">${tempStation.division}</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-
-
 </body>
 </html>

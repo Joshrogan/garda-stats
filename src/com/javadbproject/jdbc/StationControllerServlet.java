@@ -34,10 +34,40 @@ public class StationControllerServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		listStations(request, response);
+			String command = request.getParameter("command");
+			
+			switch (command) {
+				case "STATIONS":
+					listStations(request, response);
+					break;
+					
+				case "DIVISIONS":
+					listDivisions(request, response);
+					break;
+					
+				case "ONEDIVISION":
+					listOneDivision(request, response);
+					break;
+					
+				default:
+					listStations(request, response);
+			}
+
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
+	}
+
+	private void listOneDivision(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String divisionName = request.getParameter("divisionName");
+		
+		List<Station> divisionList = stationDbUtil.getOneDivision(divisionName);
+		
+		request.setAttribute("THE_DIVISION", divisionList);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-one-division.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void listStations(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -46,6 +76,15 @@ public class StationControllerServlet extends HttpServlet {
 		request.setAttribute("STATION_LIST", stations);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-stations.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void listDivisions(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List<Station> divisions = stationDbUtil.getDivisions();
+		
+		request.setAttribute("DIVISION_LIST", divisions);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-divisions.jsp");
 		dispatcher.forward(request, response);
 	}
 }
