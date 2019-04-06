@@ -48,6 +48,10 @@ public class StationControllerServlet extends HttpServlet {
 				case "ONEDIVISION":
 					listOneDivision(request, response);
 					break;
+				
+				case "SEARCH":
+						searchStations(request, response);
+						break;
 					
 				default:
 					listStations(request, response);
@@ -87,4 +91,15 @@ public class StationControllerServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-divisions.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+    private void searchStations(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String searchTerm = request.getParameter("searchTerm");
+        
+        List<Station> stations = stationDbUtil.searchStations(searchTerm);
+        
+        request.setAttribute("STATION_LIST", stations);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/list-stations.jsp");
+        dispatcher.forward(request, response);
+    }
 }

@@ -27,7 +27,7 @@ public class StationDbUtil {
 		try {
 			connection = dataSource.getConnection();
 			
-			String sql = "select * from data order by divisions";
+			String sql = "select * from data order by station";
 			
 			statement = connection.createStatement();
 			
@@ -116,6 +116,49 @@ public class StationDbUtil {
 			close(connection, statement, result);
 		}
 	}
+	
+    public List<Station> searchStations(String searchTerm)  throws Exception {
+        List<Station> stations = new ArrayList<>();
+        
+        Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet result = null;
+        
+        try {
+            connection = dataSource.getConnection();
+
+            if (searchTerm != null && searchTerm.trim().length() > 0) {
+                String sql = "select * from data where lower(station) like ? or lower(divisions) like ?";
+                statement = connection.prepareStatement(sql);
+                
+                String searchTermLike = "%" + searchTerm.toLowerCase() + "%";
+                statement.setString(1, searchTermLike);
+                statement.setString(2, searchTermLike);
+                
+            } else {
+                String sql = "select * from data order by divisions";
+                statement = connection.prepareStatement(sql);
+            }
+
+            result = statement.executeQuery();
+            
+            while (result.next()) {
+            	String stationName = result.getString("station");
+				String division = result.getString("divisions");
+				int murderAssault = 
+						result.getInt("attemptsthreatstomurderassaultsharassmentsandrelatedoffences");
+				
+				Station tempStation = new Station(stationName, division, murderAssault);
+				
+				stations.add(tempStation);           
+            }
+            
+            return stations;
+        }
+        finally {
+            close(connection, statement, result);
+        }
+    }
 
 	private void close(Connection connection, Statement statement, ResultSet result) {
 		try {

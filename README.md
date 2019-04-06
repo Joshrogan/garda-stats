@@ -1,9 +1,13 @@
 #TODO:
-1. ADD SEARCH FUNCTIONALITY TO STATION LIST
-2. SORT STATION LIST ALPHABETICALLY
-3. ADD ONE STATION METHOD TO LIST ALL STATS FROM ONE STATION
+1. Bootstrap and prettify front end
+2. port to laptop(?)
+3. better readme
+4. video talking through it
 
 #NICETOHAVESMAYBE:
 1.MAVEN IT
 2.HOST IT
 3.
+
+
+

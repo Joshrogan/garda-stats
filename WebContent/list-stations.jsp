@@ -11,10 +11,16 @@
 
 	<h1>List of stations</h1>
 	<a href="index.jsp">back home</a>
-		<form action="StationControllerServlet" method="GET">
+	<form action="StationControllerServlet" method="GET">
 		<input type="submit" name="command" value="STATIONS" />
 		<input type="submit" name="command" value="DIVISIONS" />
 	</form>
+	
+	<form action="StationControllerServlet" method="GET">
+		<input type="hidden" name="command" value="SEARCH" />
+         Search stations/divisions: <input type="text" name="searchTerm" />
+        <input type="submit" value="Search" />
+    </form>
 	<table>
 		<tr>
 			<th>Station</th>
