@@ -182,10 +182,10 @@ public class StationDbUtil {
 			while(result.next()) {
 				String stationName = result.getString("station");
 				String division = result.getString("divisions");
-				int murderAssault = 
+				int worstChoice = 
 						result.getInt(sqlWorst);
 				
-				Station tempStation = new Station(stationName, division, murderAssault);
+				Station tempStation = new Station(stationName, division, worstChoice);
 				
 				stations.add(tempStation);
 			}
