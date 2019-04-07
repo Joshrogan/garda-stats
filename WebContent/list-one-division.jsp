@@ -11,7 +11,7 @@
 <body>
 
 	<nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">
+	  <a class="navbar-brand" href="index.jsp">
 	    <i class="fas fa-balance-scale"></i>
 	    Garda Stats
 	  </a>

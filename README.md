@@ -1,6 +1,5 @@
 #TODO:
-1. Bootstrap and prettify front end
-1.1. write better comments 
+1. write better comments 
 2. port to laptop(?)
 3. better readme
 4. video talking through it
