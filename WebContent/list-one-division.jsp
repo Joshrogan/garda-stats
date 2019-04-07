@@ -28,6 +28,17 @@
 			<th>Station</th>
 			<th>Division</th>
 			<th>Murders/Assaults</th>
+			<th>Negligence</th>
+			<th>Kidnapping</th>
+			<th>Rob/Extort/Hijack</th>
+			<th>Burglary</th>
+			<th>Theft</th>
+			<th>Fraud</th>
+			<th>Drugs</th>
+			<th>Weapons</th>
+			<th>Property</th>
+			<th>Public Order</th>
+			<th>Org Crime</th>
 
 		</tr>
 		<c:forEach var="tempStation" items="${THE_DIVISION}">
@@ -35,6 +46,17 @@
 				<td>${tempStation.stationName}</td>
 				<td>${tempStation.division}</td>
 				<td>${tempStation.murderAssault}</td>
+				<td>${tempStation.dangerousNegligance}</td>
+				<td>${tempStation.kidnapping}</td>
+				<td>${tempStation.robExtortHijack}</td>
+				<td>${tempStation.burglary}</td>
+				<td>${tempStation.theft}</td>
+				<td>${tempStation.fraud}</td>
+				<td>${tempStation.drugs}</td>
+				<td>${tempStation.weapons}</td>
+				<td>${tempStation.damageProperty}</td>
+				<td>${tempStation.publicOrder}</td>
+				<td>${tempStation.orgCrime}</td>
 			</tr>
 		</c:forEach>
 	</table>

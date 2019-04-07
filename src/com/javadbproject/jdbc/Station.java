@@ -27,11 +27,10 @@ public class Station {
 		this.murderAssault = murderAssault;
 	}
 
-	//complete
-	public Station(int id, String stationName, String division, int murderAssault, int dangerousNegligance,
+	//complete minus id
+	public Station(String stationName, String division, int murderAssault, int dangerousNegligance,
 			int kidnapping, int robExtortHijack, int burglary, int theft, int fraud, int drugs, int weapons,
 			int damageProperty, int publicOrder, int orgCrime) {
-		this.id = id;
 		this.stationName = stationName;
 		this.division = division;
 		this.murderAssault = murderAssault;

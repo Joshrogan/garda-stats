@@ -38,8 +38,21 @@ public class StationDbUtil {
 				String division = result.getString("divisions");
 				int murderAssault = 
 						result.getInt("attemptsthreatstomurderassaultsharassmentsandrelatedoffences");
+				int dangerousNegligance = result.getInt("dangerousornegligentacts");
+				int kidnapping = result.getInt("kidnappingandrelatedoffences");
+				int robExtortHijack = result.getInt("robberyextortionandhijackingoffences");
+				int burglary = result.getInt("burglaryandrelatedoffences");
+				int theft = result.getInt("theftandrelatedoffences");
+				int fraud = result.getInt("frauddeceptionandrelatedoffences");
+				int drugs = result.getInt("controlleddrugoffences");
+				int weapons = result.getInt("weaponsand_explosives_offences");
+				int damageProperty = result.getInt("damagetopropertyandtotheenvironment");
+				int publicOrder = result.getInt("publicorderandothersocialcodeoffences");
+				int orgCrime = result.getInt("offencesagainstgovernmentjusticeproceduresandorgofcrime");
 				
-				Station tempStation = new Station(stationName, division, murderAssault);
+				Station tempStation = new Station(stationName, division, murderAssault, dangerousNegligance,
+						kidnapping, robExtortHijack, burglary, theft, fraud, drugs, weapons, damageProperty, 
+						publicOrder, orgCrime);
 				
 				stations.add(tempStation);
 			}
@@ -105,8 +118,21 @@ public class StationDbUtil {
 				String division = result.getString("divisions");
 				int murderAssault = 
 						result.getInt("attemptsthreatstomurderassaultsharassmentsandrelatedoffences");
+				int dangerousNegligance = result.getInt("dangerousornegligentacts");
+				int kidnapping = result.getInt("kidnappingandrelatedoffences");
+				int robExtortHijack = result.getInt("robberyextortionandhijackingoffences");
+				int burglary = result.getInt("burglaryandrelatedoffences");
+				int theft = result.getInt("theftandrelatedoffences");
+				int fraud = result.getInt("frauddeceptionandrelatedoffences");
+				int drugs = result.getInt("controlleddrugoffences");
+				int weapons = result.getInt("weaponsand_explosives_offences");
+				int damageProperty = result.getInt("damagetopropertyandtotheenvironment");
+				int publicOrder = result.getInt("publicorderandothersocialcodeoffences");
+				int orgCrime = result.getInt("offencesagainstgovernmentjusticeproceduresandorgofcrime");
 				
-				Station tempStation = new Station(stationName, division, murderAssault);
+				Station tempStation = new Station(stationName, division, murderAssault, dangerousNegligance,
+						kidnapping, robExtortHijack, burglary, theft, fraud, drugs, weapons, damageProperty, 
+						publicOrder, orgCrime);
 				
 				stations.add(tempStation);
 			}
@@ -147,10 +173,23 @@ public class StationDbUtil {
 				String division = result.getString("divisions");
 				int murderAssault = 
 						result.getInt("attemptsthreatstomurderassaultsharassmentsandrelatedoffences");
+				int dangerousNegligance = result.getInt("dangerousornegligentacts");
+				int kidnapping = result.getInt("kidnappingandrelatedoffences");
+				int robExtortHijack = result.getInt("robberyextortionandhijackingoffences");
+				int burglary = result.getInt("burglaryandrelatedoffences");
+				int theft = result.getInt("theftandrelatedoffences");
+				int fraud = result.getInt("frauddeceptionandrelatedoffences");
+				int drugs = result.getInt("controlleddrugoffences");
+				int weapons = result.getInt("weaponsand_explosives_offences");
+				int damageProperty = result.getInt("damagetopropertyandtotheenvironment");
+				int publicOrder = result.getInt("publicorderandothersocialcodeoffences");
+				int orgCrime = result.getInt("offencesagainstgovernmentjusticeproceduresandorgofcrime");
 				
-				Station tempStation = new Station(stationName, division, murderAssault);
+				Station tempStation = new Station(stationName, division, murderAssault, dangerousNegligance,
+						kidnapping, robExtortHijack, burglary, theft, fraud, drugs, weapons, damageProperty, 
+						publicOrder, orgCrime);
 				
-				stations.add(tempStation);           
+				stations.add(tempStation);          
             }
             
             return stations;
@@ -172,7 +211,7 @@ public class StationDbUtil {
 			connection = dataSource.getConnection();
 			
 			//prepared statements let us handle different inputs and not hardcode
-			String sql = "select * from data order by " + sqlWorst + " DESC";
+			String sql = "select * from data order by " + worstTerm + " DESC";
 			
 			statement = connection.prepareStatement(sql);
 			
@@ -183,7 +222,7 @@ public class StationDbUtil {
 				String stationName = result.getString("station");
 				String division = result.getString("divisions");
 				int worstChoice = 
-						result.getInt(sqlWorst);
+						result.getInt(worstTerm);
 				
 				Station tempStation = new Station(stationName, division, worstChoice);
 				

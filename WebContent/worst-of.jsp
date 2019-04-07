@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>Worst of X</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
@@ -31,10 +32,20 @@
 			<th> 
 			<form action="StationControllerServlet" method="GET">
 				<select name="worstTerm">
-				  <option value="volvo" <c:if test = "${dropdown == 'volvo'}">selected </c:if>>Volvo</option>
-				  <option value="murder" <c:if test = "${dropdown == 'murder'}">selected </c:if>>Murder/Assaults</option>
-				  <option value="fiat" <c:if test = "${dropdown == 'fiat'}">selected </c:if>>Fiat</option>
-				  <option value="audi" <c:if test = "${dropdown == 'audi'}">selected </c:if>>Audi</option>
+				  <option value="attemptsthreatstomurderassaultsharassmentsandrelatedoffences"
+				   	<c:if test = "${dropdown == 'attemptsthreatstomurderassaultsharassmentsandrelatedoffences'}">selected </c:if>>murder/Assault</option>
+				  <option value="dangerousornegligentacts" <c:if test = "${dropdown == 'dangerousornegligentacts'}">selected </c:if>>Negligence</option>
+				  <option value="kidnappingandrelatedoffences" <c:if test = "${dropdown == 'kidnappingandrelatedoffences'}">selected </c:if>>kidnapping</option>
+				  <option value="robberyextortionandhijackingoffences" <c:if test = "${dropdown == 'robberyextortionandhijackingoffences'}">selected </c:if>>robbery/Extort/Hijack</option>
+				  <option value="burglaryandrelatedoffences" <c:if test = "${dropdown == 'burglaryandrelatedoffences'}">selected </c:if>>burglary</option>
+				  <option value="theftandrelatedoffences" <c:if test = "${dropdown == 'theftandrelatedoffences'}">selected </c:if>>theft</option>
+				  <option value="frauddeceptionandrelatedoffences" <c:if test = "${dropdown == 'frauddeceptionandrelatedoffences'}">selected </c:if>>fraud</option>
+				  <option value="controlleddrugoffences" <c:if test = "${dropdown == 'controlleddrugoffences'}">selected </c:if>>drugs</option>
+				  <option value="weaponsand_explosives_offences" <c:if test = "${dropdown == 'weaponsand_explosives_offences'}">selected </c:if>>weapons</option>
+				  <option value="damagetopropertyandtotheenvironment" <c:if test = "${dropdown == 'damagetopropertyandtotheenvironment'}">selected </c:if>>property</option>
+				  <option value="publicorderandothersocialcodeoffences" <c:if test = "${dropdown == 'publicorderandothersocialcodeoffences'}">selected </c:if>>public order</option>
+				  <option value="offencesagainstgovernmentjusticeproceduresandorgofcrime" 
+				  	<c:if test = "${dropdown == 'offencesagainstgovernmentjusticeproceduresandorgofcrime'}">selected </c:if>>org crime</option>
 				</select>
 				<input type="submit" value="WORST" name="command"> 
 			</form>
