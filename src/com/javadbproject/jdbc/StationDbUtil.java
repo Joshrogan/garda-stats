@@ -159,6 +159,42 @@ public class StationDbUtil {
             close(connection, statement, result);
         }
     }
+    
+    public List<Station> worstStations(String worstTerm)  throws Exception {
+        List<Station> stations = new ArrayList<>();
+        
+        Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet result = null;
+      
+		try {
+			String sqlWorst = "attemptsthreatstomurderassaultsharassmentsandrelatedoffences";
+			connection = dataSource.getConnection();
+			
+			//prepared statements let us handle different inputs and not hardcode
+			String sql = "select * from data order by " + sqlWorst + " DESC";
+			
+			statement = connection.prepareStatement(sql);
+			
+			
+			result = statement.executeQuery();
+			
+			while(result.next()) {
+				String stationName = result.getString("station");
+				String division = result.getString("divisions");
+				int murderAssault = 
+						result.getInt(sqlWorst);
+				
+				Station tempStation = new Station(stationName, division, murderAssault);
+				
+				stations.add(tempStation);
+			}
+			
+			return stations;
+		} finally {
+			close(connection, statement, result);
+		}
+	}
 
 	private void close(Connection connection, Statement statement, ResultSet result) {
 		try {

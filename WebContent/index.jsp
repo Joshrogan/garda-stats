@@ -13,6 +13,7 @@
 	<form action="StationControllerServlet" method="GET">
 		<input type="submit" name="command" value="STATIONS" />
 		<input type="submit" name="command" value="DIVISIONS" />
+		<input type="button" onclick="location.href='worst-of.jsp';" value="Worst of" />
 	</form>
 
 </body>

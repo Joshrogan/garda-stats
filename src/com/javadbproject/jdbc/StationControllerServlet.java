@@ -50,8 +50,12 @@ public class StationControllerServlet extends HttpServlet {
 					break;
 				
 				case "SEARCH":
-						searchStations(request, response);
-						break;
+					searchStations(request, response);
+					break;
+					
+				case "WORST":
+					worstStations(request, response);
+					break;
 					
 				default:
 					listStations(request, response);
@@ -100,6 +104,18 @@ public class StationControllerServlet extends HttpServlet {
         request.setAttribute("STATION_LIST", stations);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/list-stations.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void worstStations(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String searchTerm = request.getParameter("worstTerm");
+        
+        List<Station> stations = stationDbUtil.worstStations(searchTerm);
+        
+        request.setAttribute("STATION_LIST", stations);
+        request.setAttribute("searchTerm", searchTerm);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/worst-of.jsp");
         dispatcher.forward(request, response);
     }
 }
