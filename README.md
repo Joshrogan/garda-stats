@@ -1,5 +1,4 @@
 #TODO:
-0. Find worst X number of stations for Y offenses
 1. Bootstrap and prettify front end
 1.1. write better comments 
 2. port to laptop(?)
