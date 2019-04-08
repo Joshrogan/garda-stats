@@ -25,9 +25,9 @@ requests information from the Model via the StationDbUtil object
 and sends this information to the JSP pages.
 
 ## Files/Classes of note
-* Java Resources/src/com.javadbproject.jdbc/Station.java
-* Java Resources/src/com.javadbproject.jdbc/StationControllerServlet.java
-* Java Resources/src/com.javadbproject.jdbc/StationDbUtil.java
+* Java Resources/src/com/javadbproject/jdbc/Station.java
+* Java Resources/src/com/javadbproject/jdbc/StationControllerServlet.java
+* Java Resources/src/com/javadbproject/jdbc/StationDbUtil.java
 
 * WebContent/index.jsp
 * WebContent/list-divisions.jsp
