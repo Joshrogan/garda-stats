@@ -1,13 +1,26 @@
-#TODO:
-1. write better comments 
-2. port to laptop(?)
-3. better readme
-4. video talking through it
+# Garda Stats 2nd Year Java project
 
-#NICETOHAVESMAYBE:
-1.MAVEN IT
-2.HOST IT
-3.
+I Downloaded and turned a garda crime CSV statistics file (source: https://data.gov.ie) into a SQL database.
+Then I used JDBC to connect to the MySQL database and Tomcat to render the Java Server Pages.
+
+##Features
+* Search box that searches all stations/divisions
+* Browse by Divison to find the worst/best stations in an area
+* Worst offending stations by category
 
 
+## Also Built With
+
+* [Apache Tomcat](http://tomcat.apache.org/) - an open-source Java Servlet Container to handle JSP, JSTL and HTTP logic
+* [MySQL](https://www.mysql.com/) - used to store the database
+* [HTML/CSS/Bootstrap](https://getbootstrap.com/) - To build the front end of the site
+
+## Project Architecture
+
+I tried to implement a Model-View-Controller Architecture in this project.
+
+The MySQL database/Student class form the Model, the JSP pages are the View 
+and the StationControllerServlet is the Controller because it 
+requests information from the Model via the StationDbUtil object
+and sends this information to the JSP pages.
 
