@@ -1,3 +1,8 @@
+<!--
+ All .jsp's in this project make use of The JavaServer Pages Standard Tag Library,
+ which has built in functionality for dealing with common tasks in JSP like 
+ iterating, conditional statements and SQL tags.
+ -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>

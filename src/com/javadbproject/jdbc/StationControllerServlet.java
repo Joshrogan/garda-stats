@@ -1,3 +1,18 @@
+/******************************
+* Class name: StationControllerServlet.java
+* Class Description:
+* 
+* Our StationControllerServlet takes in requests from 
+* the jsp/html pages and uses a stationDbUtil object to 
+* interact with the MySQL database and send the results
+* back out to the jsp/html view.
+* 
+* All methods in this class follow a similar format:
+* 
+* 1. Get Stations/Divisions results from StationDbUtil object
+* 2. pass it back to the appropriate jsp page with results attached.
+* 
+ ******************************/
 package com.javadbproject.jdbc;
 
 import java.io.IOException;
@@ -18,8 +33,10 @@ public class StationControllerServlet extends HttpServlet {
 
 	private StationDbUtil stationDbUtil;
 	
+	//Found in META-INF/context.xml
 	@Resource(name="jdbc/garda_stats")
 	private DataSource dataSource;
+	
 	
 	@Override
 	public void init() throws ServletException {

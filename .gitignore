@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 WebContent/META-INF/content.xml
+=======
+WebContent/META-INF/context.xml
+>>>>>>> e7824e1e72c611aca2a0aa3d6d4981c0cc4f5e3b
