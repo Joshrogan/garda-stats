@@ -3,7 +3,7 @@
 I Downloaded and turned a garda crime CSV statistics file (source: https://data.gov.ie) into a SQL database.
 Then I used JDBC to connect to the MySQL database and Tomcat to render the Java Server Pages.
 
-##Features
+## Features
 * Search box that searches all stations/divisions
 * Browse by Divison to find the worst/best stations in an area
 * Worst offending stations by category
@@ -25,12 +25,18 @@ requests information from the Model via the StationDbUtil object
 and sends this information to the JSP pages.
 
 ## Files/Classes of note
-Java Resources/src/com.javadbproject.jdbc/Station.java
-Java Resources/src/com.javadbproject.jdbc/StationControllerServlet.java
-Java Resources/src/com.javadbproject.jdbc/StationDbUtil.java
+* Java Resources/src/com.javadbproject.jdbc/Station.java
+* Java Resources/src/com.javadbproject.jdbc/StationControllerServlet.java
+* Java Resources/src/com.javadbproject.jdbc/StationDbUtil.java
 
-WebContent/index.jsp
-WebContent/list-divisions.jsp
-WebContent/list-one-division.jsp
-WebContent/list-stations.jsp
-WebContent/worst-of.jsp
+* WebContent/index.jsp
+* WebContent/list-divisions.jsp
+* WebContent/list-one-division.jsp
+* WebContent/list-stations.jsp
+* WebContent/worst-of.jsp
+
+## Github Link
+https://github.com/Joshrogan/garda-stats
+
+## Video Demonstration
+SOON
