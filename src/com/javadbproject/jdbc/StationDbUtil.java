@@ -1,3 +1,17 @@
+/******************************
+* Class name: StationDbUtil.java
+* Class Description:
+* 
+* Interaction with the MySQL database are handled in this class
+* and passed back to the StationControllerServlet.
+* 
+* Prepared statements are used when user input into SQL queries is required,
+* otherwise just regular statements used.
+* 
+* All methods follow similar format of try establish connection,
+* create/execute query, close JDBC return results to StationControllerServlet
+* 
+ ******************************/
 package com.javadbproject.jdbc;
 
 import java.sql.Connection;
@@ -70,7 +84,7 @@ public class StationDbUtil {
 		Statement statement = null;
 		ResultSet result = null;
 		
-		// try establish db connection, create/execute SQL, store in stations and close JDBC after
+		// try establish db connection, create/execute SQL, store in uniqueDivisions and close JDBC after
 		try {
 			connection = dataSource.getConnection();
 			
@@ -150,6 +164,7 @@ public class StationDbUtil {
 		PreparedStatement statement = null;
 		ResultSet result = null;
         
+		// try establish db connection, create/execute SQL, store in stations and close JDBC after
         try {
             connection = dataSource.getConnection();
 
@@ -205,9 +220,11 @@ public class StationDbUtil {
         Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet result = null;
-      
+		
+		
+		// try establish db connection, create/execute SQL, store in stations and close JDBC after
 		try {
-			String sqlWorst = "attemptsthreatstomurderassaultsharassmentsandrelatedoffences";
+			
 			connection = dataSource.getConnection();
 			
 			//prepared statements let us handle different inputs and not hardcode

@@ -1,3 +1,13 @@
+/******************************
+* Class name: Station.java
+* Class Description:
+* 
+* Station objects are where we store the data we've gotten 
+* from the database for use in our application.
+* 
+* 
+* 
+ ******************************/
 package com.javadbproject.jdbc;
 
 public class Station {
@@ -113,7 +123,4 @@ public class Station {
 		return "Station [stationName=" + stationName + ", division=" + division + ", murderAssault=" + murderAssault
 				+ "]";
 	}
-
-	
-	
 }
