@@ -39,4 +39,4 @@ and sends this information to the JSP pages.
 https://github.com/Joshrogan/garda-stats
 
 ## Video Demonstration
-SOON
+https://www.youtube.com/watch?v=Gmj_cKHKKDg
